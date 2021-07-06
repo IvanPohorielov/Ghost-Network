@@ -46,6 +46,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginDidPressed:" destination="Tpy-jl-zwo" eventType="touchUpInside" id="2wH-4R-HFu"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b2O-Cf-73A">
                                 <rect key="frame" x="93.5" y="353" width="227" height="30"/>
