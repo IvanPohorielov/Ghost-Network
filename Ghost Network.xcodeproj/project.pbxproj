@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1BE50006964D995BFED26E /* libPods-Ghost Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0C0DF8FF64EB715B2EF9E6 /* libPods-Ghost Network.a */; };
 		FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BC269438EF009C0AA9 /* AppDelegate.swift */; };
 		FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */; };
 		FAD570C1269438EF009C0AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570C0269438EF009C0AA9 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.release.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.release.xcconfig"; sourceTree = "<group>"; };
+		A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.debug.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD570B9269438EF009C0AA9 /* Ghost Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD570BC269438EF009C0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		FAD570C5269438F2009C0AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD570C8269438F2009C0AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD570CA269438F2009C0AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB0C0DF8FF64EB715B2EF9E6 /* libPods-Ghost Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ghost Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1BE50006964D995BFED26E /* libPods-Ghost Network.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4B0E2BE0CA24C306E7AEAD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */,
+				9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C73B86AB838C783EADEF7D10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB0C0DF8FF64EB715B2EF9E6 /* libPods-Ghost Network.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAD570B0269438EF009C0AA9 = {
 			isa = PBXGroup;
 			children = (
 				FAD570BB269438EF009C0AA9 /* Ghost Network */,
 				FAD570BA269438EF009C0AA9 /* Products */,
+				B4B0E2BE0CA24C306E7AEAD3 /* Pods */,
+				C73B86AB838C783EADEF7D10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +81,9 @@
 		FAD570BB269438EF009C0AA9 /* Ghost Network */ = {
 			isa = PBXGroup;
 			children = (
+				FAD570D026944324009C0AA9 /* Model */,
+				FAD570D126944334009C0AA9 /* View */,
+				FAD570D22694433F009C0AA9 /* Controller */,
 				FAD570BC269438EF009C0AA9 /* AppDelegate.swift */,
 				FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */,
 				FAD570C0269438EF009C0AA9 /* ViewController.swift */,
@@ -67,6 +95,27 @@
 			path = "Ghost Network";
 			sourceTree = "<group>";
 		};
+		FAD570D026944324009C0AA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAD570D126944334009C0AA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAD570D22694433F009C0AA9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +123,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAD570CD269438F2009C0AA9 /* Build configuration list for PBXNativeTarget "Ghost Network" */;
 			buildPhases = (
+				518B85C956696BD92D8128E0 /* [CP] Check Pods Manifest.lock */,
 				FAD570B5269438EF009C0AA9 /* Sources */,
 				FAD570B6269438EF009C0AA9 /* Frameworks */,
 				FAD570B7269438EF009C0AA9 /* Resources */,
@@ -131,6 +181,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		518B85C956696BD92D8128E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ghost Network-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAD570B5269438EF009C0AA9 /* Sources */ = {
@@ -283,6 +358,7 @@
 		};
 		FAD570CE269438F2009C0AA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +378,7 @@
 		};
 		FAD570CF269438F2009C0AA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

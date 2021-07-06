@@ -1,0 +1,6 @@
+module Pods_Ghost_Network {
+  umbrella header "Pods-Ghost Network-umbrella.h"
+
+  export *
+  module * { export * }
+}
