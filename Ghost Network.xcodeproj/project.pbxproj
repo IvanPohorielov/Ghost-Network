@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C1BE50006964D995BFED26E /* libPods-Ghost Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0C0DF8FF64EB715B2EF9E6 /* libPods-Ghost Network.a */; };
+		FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C1149269449DB004B038C /* LoginViewController.swift */; };
 		FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BC269438EF009C0AA9 /* AppDelegate.swift */; };
 		FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */; };
-		FAD570C1269438EF009C0AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570C0269438EF009C0AA9 /* ViewController.swift */; };
 		FAD570C4269438EF009C0AA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD570C2269438EF009C0AA9 /* Main.storyboard */; };
 		FAD570C6269438F2009C0AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD570C5269438F2009C0AA9 /* Assets.xcassets */; };
 		FAD570C9269438F2009C0AA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD570C7269438F2009C0AA9 /* LaunchScreen.storyboard */; };
@@ -19,10 +19,10 @@
 /* Begin PBXFileReference section */
 		9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.release.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.release.xcconfig"; sourceTree = "<group>"; };
 		A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.debug.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5C1149269449DB004B038C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAD570B9269438EF009C0AA9 /* Ghost Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD570BC269438EF009C0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD570C0269438EF009C0AA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAD570C3269438EF009C0AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD570C5269438F2009C0AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD570C8269438F2009C0AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,6 @@
 				A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */,
 				9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,8 +85,6 @@
 				FAD570D22694433F009C0AA9 /* Controller */,
 				FAD570BC269438EF009C0AA9 /* AppDelegate.swift */,
 				FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */,
-				FAD570C0269438EF009C0AA9 /* ViewController.swift */,
-				FAD570C2269438EF009C0AA9 /* Main.storyboard */,
 				FAD570C5269438F2009C0AA9 /* Assets.xcassets */,
 				FAD570C7269438F2009C0AA9 /* LaunchScreen.storyboard */,
 				FAD570CA269438F2009C0AA9 /* Info.plist */,
@@ -105,6 +102,7 @@
 		FAD570D126944334009C0AA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAD570C2269438EF009C0AA9 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +110,7 @@
 		FAD570D22694433F009C0AA9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FA5C1149269449DB004B038C /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD570C1269438EF009C0AA9 /* ViewController.swift in Sources */,
+				FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */,
 				FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */,
 				FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */,
 			);
