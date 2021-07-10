@@ -10,3 +10,12 @@ import Foundation
 struct LoginData: Codable {
     let access_token: String
 }
+
+struct UserData: Codable {
+    let firstName: String?
+    let lastName: String?
+    let gender: String?
+    let dateOfBirth : String?
+}
+
+
