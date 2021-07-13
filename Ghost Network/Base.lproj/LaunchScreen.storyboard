@@ -31,7 +31,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="GwG-yE-nUY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2pU-cL-sPr"/>
                             <constraint firstItem="GwG-yE-nUY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NCb-ch-4Je"/>
@@ -47,6 +47,9 @@
     </scenes>
     <resources>
         <image name="Ghost" width="504" height="560"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

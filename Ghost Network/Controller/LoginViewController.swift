@@ -36,7 +36,7 @@ class LoginViewController: UIViewController{
                     SharedClass.sharedInstance.alert(view: self, title: "Error", message: "Please check your password and email!")
                 } else {
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "UserViewController", sender: self)
+                    self.performSegue(withIdentifier: "TabBarController", sender: self)
                     }
                 }
             }
@@ -52,8 +52,3 @@ class LoginViewController: UIViewController{
     
 }
 
-
-//    loginManager.login(userName: userName, password: password)
-//} else {
-//    self.performSegue(withIdentifier: "UserViewController", sender: self)
-//}
