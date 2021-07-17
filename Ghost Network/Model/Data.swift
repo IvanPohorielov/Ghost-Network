@@ -7,9 +7,13 @@
 
 import Foundation
 
+//MARK: - LoginPageData
+
 struct LoginData: Codable {
     let access_token: String
 }
+
+//MARK: - UserPageInfo
 
 struct UserData: Codable {
     let firstName: String?
@@ -18,5 +22,16 @@ struct UserData: Codable {
     let dateOfBirth : String?
 
 }
+//MARK: - PostData
 
+struct PostData: Codable {
+    let content: String?
+    let author: Author?
+}
 
+struct Author: Codable {
+      //let id: String?
+      let fullName: String?
+      //let avatarUrl: String?
+}
+   

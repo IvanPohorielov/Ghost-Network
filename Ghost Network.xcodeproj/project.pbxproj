@@ -11,7 +11,11 @@
 		FA2D14CB2699833900686D4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D14CA2699833900686D4E /* Alert.swift */; };
 		FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C1149269449DB004B038C /* LoginViewController.swift */; };
 		FA5C1150269480DB004B038C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C114F269480DB004B038C /* LoginManager.swift */; };
-		FA5C11542694810F004B038C /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C11532694810F004B038C /* LoginData.swift */; };
+		FA5C11542694810F004B038C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C11532694810F004B038C /* Data.swift */; };
+		FA6226D1269DF0AD00F6E2CE /* PostManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D0269DF0AD00F6E2CE /* PostManger.swift */; };
+		FA6226D4269DF6B400F6E2CE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D2269DF6B400F6E2CE /* PostCell.swift */; };
+		FA6226D5269DF6B400F6E2CE /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6226D3269DF6B400F6E2CE /* PostCell.xib */; };
+		FA6226D726A2B22A00F6E2CE /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D626A2B22A00F6E2CE /* NewsFeedViewController.swift */; };
 		FA6961EC2696FED60008FFD1 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6961EB2696FED60008FFD1 /* UserViewController.swift */; };
 		FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BC269438EF009C0AA9 /* AppDelegate.swift */; };
 		FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */; };
@@ -26,7 +30,11 @@
 		FA2D14CA2699833900686D4E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FA5C1149269449DB004B038C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA5C114F269480DB004B038C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		FA5C11532694810F004B038C /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		FA5C11532694810F004B038C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		FA6226D0269DF0AD00F6E2CE /* PostManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManger.swift; sourceTree = "<group>"; };
+		FA6226D2269DF6B400F6E2CE /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		FA6226D3269DF6B400F6E2CE /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		FA6226D626A2B22A00F6E2CE /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		FA6961EB2696FED60008FFD1 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		FAD570B9269438EF009C0AA9 /* Ghost Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD570BC269438EF009C0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				FA5C114F269480DB004B038C /* LoginManager.swift */,
-				FA5C11532694810F004B038C /* LoginData.swift */,
+				FA6226D0269DF0AD00F6E2CE /* PostManger.swift */,
+				FA5C11532694810F004B038C /* Data.swift */,
 				FA2D14CA2699833900686D4E /* Alert.swift */,
 			);
 			path = Model;
@@ -114,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD570C2269438EF009C0AA9 /* Main.storyboard */,
+				FA6226D2269DF6B400F6E2CE /* PostCell.swift */,
+				FA6226D3269DF6B400F6E2CE /* PostCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 			children = (
 				FA5C1149269449DB004B038C /* LoginViewController.swift */,
 				FA6961EB2696FED60008FFD1 /* UserViewController.swift */,
+				FA6226D626A2B22A00F6E2CE /* NewsFeedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +200,7 @@
 				FAD570C9269438F2009C0AA9 /* LaunchScreen.storyboard in Resources */,
 				FAD570C6269438F2009C0AA9 /* Assets.xcassets in Resources */,
 				FAD570C4269438EF009C0AA9 /* Main.storyboard in Resources */,
+				FA6226D5269DF6B400F6E2CE /* PostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,11 +238,14 @@
 			files = (
 				FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */,
 				FA6961EC2696FED60008FFD1 /* UserViewController.swift in Sources */,
-				FA5C11542694810F004B038C /* LoginData.swift in Sources */,
+				FA5C11542694810F004B038C /* Data.swift in Sources */,
+				FA6226D1269DF0AD00F6E2CE /* PostManger.swift in Sources */,
 				FA5C1150269480DB004B038C /* LoginManager.swift in Sources */,
+				FA6226D4269DF6B400F6E2CE /* PostCell.swift in Sources */,
 				FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */,
 				FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */,
 				FA2D14CB2699833900686D4E /* Alert.swift in Sources */,
+				FA6226D726A2B22A00F6E2CE /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

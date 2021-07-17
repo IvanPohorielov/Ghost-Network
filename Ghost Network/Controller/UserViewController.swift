@@ -13,17 +13,26 @@ class UserViewController: UIViewController{
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     
     
     
     override func viewWillAppear(_ animated: Bool) {
         fetchUserData()
-        avatarImage.layer.borderWidth = 1.0
+        
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
+        posts = []
+        fetchUserNewsFeed()
     }
+    
+    
+    //MARK: - FetchUserData
     
     func fetchUserData() {
         
@@ -68,10 +77,10 @@ class UserViewController: UIViewController{
                         let formatter1 = DateFormatter()
                         formatter1.dateFormat = "MMM d, yyyy"
                         let dateString = formatter1.string(from: formattedDate!)
-                        let age = self.getAge(date: formattedDate!)
+                        let age = getAge(date: formattedDate!)
                         
                         self.ageLabel.text =  "\(dateString) (\(age) y.o.)"
-                    
+                        
                     } else {
                         print("error")
                     }
@@ -81,17 +90,81 @@ class UserViewController: UIViewController{
                 print("Fail to decode JSON", jsonError)
             }
         }.resume()
+        
+        func getAge(date: Date) -> Int {
+            let calendar = Calendar.current
+            let dateComponent = calendar.dateComponents([.year], from:
+                                                            date, to: Date())
+            
+            return (dateComponent.year!)
+        }
+        
     }
     
-    func getAge(date: Date) -> Int {
-    let calendar = Calendar.current
-    let dateComponent = calendar.dateComponents([.year], from:
-       date, to: Date())
-        
-        return (dateComponent.year!)
-    }
-
+    //MARK: - FetchUserPostData
+    
+    var posts: [PostData] = [
+//        PostData(content: "Hello", author: Author(fullName: "Borodin")),
+//        PostData(content: "Hello2", author: Author(fullName: "Ivan")),
+//        PostData(content: "Hello3", author: Author(fullName: "Sofia"))
+    ]
+    
+    
     func fetchUserNewsFeed() {
         
+        let requestHeaders: [String:String] = [
+            "Authorization" : "Bearer \(LoginManager.userToken!)" ,
+            "Content-Type" : "application/json"
+        ]
+        
+        
+        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed/users/\(LoginManager.subject!)")!)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = requestHeaders
+        
+        
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Some error.")
+                return
+            }
+            guard let data = data else { return }
+            do {
+                let posts = try JSONDecoder().decode([PostData].self, from: data)
+                for post in posts {
+                    if let content = post.content, let author = post.author {
+                        let newPost = PostData(content: content, author: author)
+                        self.posts.append(newPost)
+                        
+                        DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        }
+                        
+                        
+                    }
+                }
+            
+            } catch {
+                print("Fail to decode JSON")
+            }
+            
+        }.resume()
     }
+}
+//MARK: - TableView DataSource
+
+extension UserViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PostCell
+        cell.contentLabel?.text = posts[indexPath.row].content
+        cell.fullNameLabel?.text = posts[indexPath.row].author?.fullName
+        return cell
+    }
+    
 }
