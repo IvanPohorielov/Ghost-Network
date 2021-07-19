@@ -26,6 +26,7 @@ class PostCell: UITableViewCell {
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

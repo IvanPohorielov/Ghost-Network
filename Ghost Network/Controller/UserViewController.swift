@@ -19,6 +19,9 @@ class UserViewController: UIViewController{
     
     
     override func viewWillAppear(_ animated: Bool) {
+        //super .viewWillAppear(animated)
+        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
         fetchUserData()
         
         tableView.dataSource = self
@@ -27,11 +30,15 @@ class UserViewController: UIViewController{
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
+        
         posts = []
         fetchUserNewsFeed()
     }
     
-    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     //MARK: - FetchUserData
     
     func fetchUserData() {
@@ -104,9 +111,9 @@ class UserViewController: UIViewController{
     //MARK: - FetchUserPostData
     
     var posts: [PostData] = [
-//        PostData(content: "Hello", author: Author(fullName: "Borodin")),
-//        PostData(content: "Hello2", author: Author(fullName: "Ivan")),
-//        PostData(content: "Hello3", author: Author(fullName: "Sofia"))
+        //        PostData(content: "Hello", author: Author(fullName: "Borodin")),
+        //        PostData(content: "Hello2", author: Author(fullName: "Ivan")),
+        //        PostData(content: "Hello3", author: Author(fullName: "Sofia"))
     ]
     
     
@@ -138,13 +145,13 @@ class UserViewController: UIViewController{
                         self.posts.append(newPost)
                         
                         DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                            self.tableView.reloadData()
                         }
                         
                         
                     }
                 }
-            
+                
             } catch {
                 print("Fail to decode JSON")
             }
@@ -161,10 +168,10 @@ extension UserViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PostCell
-        cell.contentLabel?.text = posts[indexPath.row].content
-        cell.fullNameLabel?.text = posts[indexPath.row].author?.fullName
-        return cell
+        let userPostCell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PostCell
+        userPostCell.contentLabel?.text = posts[indexPath.row].content
+        userPostCell.fullNameLabel?.text = posts[indexPath.row].author?.fullName
+        return userPostCell
     }
     
 }

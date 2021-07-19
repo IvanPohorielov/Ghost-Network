@@ -8,16 +8,32 @@
 import UIKit
 
 class NewsFeedViewController: UIViewController{
-
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newPostButton: UIButton!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-
+        //super .viewWillAppear(animated)
+        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
+        newPostButton.layer.cornerRadius = 30
+        newPostButton.layer.shadowRadius = 10
+        newPostButton.layer.shadowOpacity = 0.5
+        
         posts = []
         fetchNewsFeed()
+        
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     var posts: [PostData] = []
     
     func fetchNewsFeed() {
@@ -48,13 +64,13 @@ class NewsFeedViewController: UIViewController{
                         self.posts.append(newPost)
                         
                         DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                            self.tableView.reloadData()
                         }
                         
                         
                     }
                 }
-            
+                
             } catch {
                 print("Fail to decode JSON")
             }

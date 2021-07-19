@@ -23,7 +23,13 @@ class LoginViewController: UIViewController{
         emailTextField.layer.cornerRadius = 15
         passwordTextField.layer.cornerRadius = 15
         loginButton.layer.cornerRadius = 15
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func loginDidPressed(_ sender: UIButton) {
@@ -35,7 +41,7 @@ class LoginViewController: UIViewController{
                     SharedClass.sharedInstance.alert(view: self, title: "Error", message: "Please check your password and email!")
                 } else {
                     DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "TabBarController", sender: self)
+                        self.performSegue(withIdentifier: "TabBarController", sender: self)
                     }
                 }
             }

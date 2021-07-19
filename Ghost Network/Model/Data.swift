@@ -25,6 +25,7 @@ struct UserData: Codable {
 //MARK: - PostData
 
 struct PostData: Codable {
+    //let id: String?
     let content: String?
     let author: Author?
 }
@@ -33,5 +34,11 @@ struct Author: Codable {
       //let id: String?
       let fullName: String?
       //let avatarUrl: String?
+}
+
+//MARK: - NewPostRequest
+
+struct NewPost: Codable {
+    let content: String
 }
    
