@@ -15,15 +15,6 @@
         static var error: Error?
         
         
-        
-        func login(userName: String, password: String) {
-            getToken(userName: userName, password: password) { (userToken, userCode, error) in
-                LoginManager.subject = userCode!
-                LoginManager.userToken = userToken!
-            }
-        }
-        
-        
         func getToken(userName: String, password: String, completion: @escaping (String?, String?, Error?) -> Void) {
             
             let requestHeaders: [String:String] = ["Content-Type" : "application/x-www-form-urlencoded"]

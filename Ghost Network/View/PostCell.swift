@@ -7,16 +7,21 @@
 
 import UIKit
 
-class PostCell: UITableViewCell {
+protocol PostCellDelegate: AnyObject {
+    func didTap(_ cell: PostCell)
+}
 
+class PostCell: UITableViewCell {
+    
     @IBOutlet weak var postBody: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
-    
+    weak var delegate: PostCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,13 +31,25 @@ class PostCell: UITableViewCell {
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        buttonAnimation(sender: sender)
+        delegate?.didTap(self)
+    }
+    
+    func buttonAnimation(sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 1.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity
+                       },
+                       completion: { Void in()  }
+        )
+    }
 }

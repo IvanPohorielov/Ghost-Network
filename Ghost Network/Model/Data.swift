@@ -25,15 +25,23 @@ struct UserData: Codable {
 //MARK: - PostData
 
 struct PostData: Codable {
-    //let id: String?
+    let id: String?
     let content: String?
     let author: Author?
 }
 
 struct Author: Codable {
-      //let id: String?
+      let id: String?
       let fullName: String?
       //let avatarUrl: String?
+}
+//MARK: - PostModel
+
+struct PostModel {
+    let postId: String?
+    let postContent: String?
+    let authorId: String?
+    let authorFullName: String?
 }
 
 //MARK: - NewPostRequest

@@ -15,13 +15,8 @@ class UserViewController: UIViewController{
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
-        //super .viewWillAppear(animated)
-        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+        super.viewWillAppear(true)
         fetchUserData()
         
         tableView.dataSource = self
@@ -30,14 +25,15 @@ class UserViewController: UIViewController{
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
-        
+    
         posts = []
-        fetchUserNewsFeed()
+            fetchUserNewsFeed()
+      
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//        posts = []
 //    }
     //MARK: - FetchUserData
     
@@ -92,7 +88,6 @@ class UserViewController: UIViewController{
                         print("error")
                     }
                 }
-                
             } catch let jsonError {
                 print("Fail to decode JSON", jsonError)
             }
@@ -105,17 +100,11 @@ class UserViewController: UIViewController{
             
             return (dateComponent.year!)
         }
-        
     }
     
     //MARK: - FetchUserPostData
     
-    var posts: [PostData] = [
-        //        PostData(content: "Hello", author: Author(fullName: "Borodin")),
-        //        PostData(content: "Hello2", author: Author(fullName: "Ivan")),
-        //        PostData(content: "Hello3", author: Author(fullName: "Sofia"))
-    ]
-    
+    var posts: [PostModel] = []
     
     func fetchUserNewsFeed() {
         
@@ -140,15 +129,20 @@ class UserViewController: UIViewController{
             do {
                 let posts = try JSONDecoder().decode([PostData].self, from: data)
                 for post in posts {
-                    if let content = post.content, let author = post.author {
-                        let newPost = PostData(content: content, author: author)
+                    if let postId = post.id,
+                       let postContent = post.content,
+                       let authorId = post.author?.id,
+                       let authorFullName = post.author?.fullName  {
+                        let newPost = PostModel(postId: postId,
+                                                postContent: postContent,
+                                                authorId: authorId,
+                                                authorFullName: authorFullName)
+                        
                         self.posts.append(newPost)
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
-                        
-                        
                     }
                 }
                 
@@ -169,9 +163,53 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userPostCell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PostCell
-        userPostCell.contentLabel?.text = posts[indexPath.row].content
-        userPostCell.fullNameLabel?.text = posts[indexPath.row].author?.fullName
+        
+        if posts[indexPath.row].authorId == LoginManager.subject {
+            userPostCell.deleteButton.isHidden = false
+           
+        } else {
+            userPostCell.deleteButton.isHidden = true
+        }
+        
+        userPostCell.delegate = self
+        
+        userPostCell.contentLabel?.text = posts[indexPath.row].postContent
+        userPostCell.fullNameLabel?.text = posts[indexPath.row].authorFullName
         return userPostCell
     }
     
+}
+//MARK: - MyCellDelegate
+
+extension UserViewController: PostCellDelegate {
+    func didTap(_ cell: PostCell) {
+        let indexPath = self.tableView.indexPath(for: cell)
+        deletePost(postId: posts[indexPath!.row].postId!)
+    }
+    
+    func deletePost(postId: String) {
+        let requestHeaders: [String:String] = ["Authorization" : "Bearer \(LoginManager.userToken!)",
+                                               "Content-Type" : "application/json"]
+       
+        
+        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed/\(postId)")!)
+        request.httpMethod = "DELETE"
+        request.allHTTPHeaderFields = requestHeaders
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if error != nil {
+                print("Some error.")
+                return
+            } else {
+                guard let data = data else { return }
+                let string = String(decoding: data, as: UTF8.self)
+                print(string)
+            }
+        }.resume()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            self.posts = []
+            self.fetchUserNewsFeed()
+        }
+    }
 }

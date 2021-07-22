@@ -35,8 +35,8 @@ class LoginViewController: UIViewController{
     @IBAction func loginDidPressed(_ sender: UIButton) {
         if let userName = emailTextField.text, let password = passwordTextField.text {
             loginManager.getToken(userName: userName, password: password) {(userToken, userCode, error) in
-                LoginManager.subject = userCode
-                LoginManager.userToken = userToken
+//                LoginManager.subject = userCode
+//                LoginManager.userToken = userToken
                 if error != nil {
                     SharedClass.sharedInstance.alert(view: self, title: "Error", message: "Please check your password and email!")
                 } else {
