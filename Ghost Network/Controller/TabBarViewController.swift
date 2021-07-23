@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController{
     override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
       
     }

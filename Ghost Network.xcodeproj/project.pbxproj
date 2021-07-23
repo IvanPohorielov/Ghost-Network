@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		3C1BE50006964D995BFED26E /* libPods-Ghost Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0C0DF8FF64EB715B2EF9E6 /* libPods-Ghost Network.a */; };
 		FA2D14CB2699833900686D4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D14CA2699833900686D4E /* Alert.swift */; };
+		FA4DDF1926A6B1D800D3C9D7 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4DDF1826A6B1D800D3C9D7 /* PostManager.swift */; };
 		FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C1149269449DB004B038C /* LoginViewController.swift */; };
 		FA5C1150269480DB004B038C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C114F269480DB004B038C /* LoginManager.swift */; };
 		FA5C11542694810F004B038C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C11532694810F004B038C /* Data.swift */; };
-		FA6226D1269DF0AD00F6E2CE /* PostManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D0269DF0AD00F6E2CE /* PostManger.swift */; };
 		FA6226D4269DF6B400F6E2CE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D2269DF6B400F6E2CE /* PostCell.swift */; };
 		FA6226D5269DF6B400F6E2CE /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6226D3269DF6B400F6E2CE /* PostCell.xib */; };
 		FA6226D726A2B22A00F6E2CE /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6226D626A2B22A00F6E2CE /* NewsFeedViewController.swift */; };
@@ -30,10 +30,10 @@
 		9C9C78C9E8A246C896B46016 /* Pods-Ghost Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.release.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.release.xcconfig"; sourceTree = "<group>"; };
 		A358C1B6683B9AF45CF804A3 /* Pods-Ghost Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Network.debug.xcconfig"; path = "Target Support Files/Pods-Ghost Network/Pods-Ghost Network.debug.xcconfig"; sourceTree = "<group>"; };
 		FA2D14CA2699833900686D4E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FA4DDF1826A6B1D800D3C9D7 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		FA5C1149269449DB004B038C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA5C114F269480DB004B038C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		FA5C11532694810F004B038C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		FA6226D0269DF0AD00F6E2CE /* PostManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManger.swift; sourceTree = "<group>"; };
 		FA6226D2269DF6B400F6E2CE /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FA6226D3269DF6B400F6E2CE /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		FA6226D626A2B22A00F6E2CE /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				FA5C114F269480DB004B038C /* LoginManager.swift */,
-				FA6226D0269DF0AD00F6E2CE /* PostManger.swift */,
 				FA5C11532694810F004B038C /* Data.swift */,
 				FA2D14CA2699833900686D4E /* Alert.swift */,
+				FA4DDF1826A6B1D800D3C9D7 /* PostManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 				FA6961EC2696FED60008FFD1 /* UserViewController.swift in Sources */,
 				FA6226D926A2FA6800F6E2CE /* TabBarViewController.swift in Sources */,
 				FA5C11542694810F004B038C /* Data.swift in Sources */,
-				FA6226D1269DF0AD00F6E2CE /* PostManger.swift in Sources */,
+				FA4DDF1926A6B1D800D3C9D7 /* PostManager.swift in Sources */,
 				FA5C1150269480DB004B038C /* LoginManager.swift in Sources */,
 				FA6226D4269DF6B400F6E2CE /* PostCell.swift in Sources */,
 				FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */,

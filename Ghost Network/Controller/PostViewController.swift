@@ -14,6 +14,7 @@ class PostViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         preventLargeTitleCollapsing()
         
         postButton.layer.cornerRadius = 10
@@ -63,8 +64,8 @@ class PostViewController: UIViewController {
                 return
             } else {
                 guard let data = data else { return }
-                let str = String(decoding: data, as: UTF8.self)
-                print(str)
+                let string = String(decoding: data, as: UTF8.self)
+                print(string)
             }
         }.resume()
     }
