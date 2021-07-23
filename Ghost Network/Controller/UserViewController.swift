@@ -31,88 +31,31 @@ class UserViewController: UIViewController{
         
     }
     
-    let postManager = UserNewsPostManager()
-    //MARK: - FetchUserData
+    let userManager = UserManager()
+    let userPostManager = UserNewsManager()
+
+    // Getting user data
     
     func fetchUserData() {
-        
-        let requestHeaders: [String:String] = [
-            "Authorization" : "Bearer \(LoginManager.userToken!)" ,
-            "Content-Type" : "application/json"
-        ]
-        
-        
-        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/Users/\(LoginManager.subject!)")!)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = requestHeaders
-        
-        
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("Some error.")
-                return
+ 
+        userManager.fetch(userId: LoginManager.subject!) { (firstName, lastName, dateOfBirth, age) in
+            DispatchQueue.main.async {
+                self.firstNameLabel.text = firstName
+                self.lastNameLabel.text = lastName
+                self.ageLabel.text =  "\(dateOfBirth) (\(age) y.o.)"
             }
-            guard let data = data else { return }
-            do {
-                let userData = try JSONDecoder().decode(UserData.self, from: data)
-                
-                DispatchQueue.main.async {
-                    if let firstName = userData.firstName {
-                        self.firstNameLabel.text = firstName
-                        //print(firstName)
-                    } else {
-                        print("error")
-                    }
-                    if let lastName = userData.lastName {
-                        self.lastNameLabel.text = lastName
-                        //print(lastName)
-                    } else {
-                        print("error")
-                    }
-                    if let dateOfBirth = userData.dateOfBirth {
-                        let dateOfBirthString = parceAge(dateOfBirth: dateOfBirth).0
-                        let age = parceAge(dateOfBirth: dateOfBirth).1
-                        
-                        self.ageLabel.text =  "\(dateOfBirthString) (\(age) y.o.)"
-                        
-                    } else {
-                        print("error")
-                    }
-                }
-            } catch let jsonError {
-                print("Fail to decode JSON", jsonError)
-            }
-        }.resume()
-        
-        func parceAge(dateOfBirth: String)  -> (String, Int){
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let formattedDate = formatter.date(from: dateOfBirth)
-            let formatter1 = DateFormatter()
-            formatter1.dateFormat = "MMM d, yyyy"
-            let dateOfBirth = formatter1.string(from: formattedDate!)
-            let age = getAge(date: formattedDate!)
-            
-            func getAge(date: Date) -> Int {
-                let calendar = Calendar.current
-                let dateComponent = calendar.dateComponents([.year], from:
-                                                                date, to: Date())
-                
-                return (dateComponent.year!)
-            }
-            
-            return (dateOfBirth, age)
         }
     }
     
     // Getting posts
+    
     var posts: [PostModel] = []
     
     func fetchUserNewsFeed() {
         
-        postManager.fetch(userId: LoginManager.subject!) { postNewsFeed in
+        userPostManager.fetch(userId: LoginManager.subject!) { postNewsFeed in
             self.posts = postNewsFeed
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

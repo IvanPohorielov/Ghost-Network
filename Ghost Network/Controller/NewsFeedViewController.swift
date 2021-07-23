@@ -12,7 +12,7 @@ class NewsFeedViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newPostButton: UIButton!
     
-    let postManager = UserNewsPostManager()
+    let postManager = UserNewsManager()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
