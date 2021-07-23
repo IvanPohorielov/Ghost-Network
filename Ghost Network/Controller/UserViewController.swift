@@ -25,16 +25,13 @@ class UserViewController: UIViewController{
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
-    
+        
         posts = []
-            fetchUserNewsFeed()
-      
+        fetchUserNewsFeed()
+        
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        posts = []
-//    }
+    let postManager = PostManager()
     //MARK: - FetchUserData
     
     func fetchUserData() {
@@ -102,55 +99,16 @@ class UserViewController: UIViewController{
         }
     }
     
-    //MARK: - FetchUserPostData
-    
     var posts: [PostModel] = []
     
     func fetchUserNewsFeed() {
         
-        let requestHeaders: [String:String] = [
-            "Authorization" : "Bearer \(LoginManager.userToken!)" ,
-            "Content-Type" : "application/json"
-        ]
-        
-        
-        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed/users/\(LoginManager.subject!)")!)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = requestHeaders
-        
-        
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("Some error.")
-                return
+        postManager.fetch(userId: LoginManager.subject!) { postNewsFeed in
+            self.posts = postNewsFeed
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            guard let data = data else { return }
-            do {
-                let posts = try JSONDecoder().decode([PostData].self, from: data)
-                for post in posts {
-                    if let postId = post.id,
-                       let postContent = post.content,
-                       let authorId = post.author?.id,
-                       let authorFullName = post.author?.fullName  {
-                        let newPost = PostModel(postId: postId,
-                                                postContent: postContent,
-                                                authorId: authorId,
-                                                authorFullName: authorFullName)
-                        
-                        self.posts.append(newPost)
-                        
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-                
-            } catch {
-                print("Fail to decode JSON")
-            }
-            
-        }.resume()
+        }
     }
 }
 //MARK: - TableView DataSource
@@ -166,7 +124,7 @@ extension UserViewController: UITableViewDataSource {
         
         if posts[indexPath.row].authorId == LoginManager.subject {
             userPostCell.deleteButton.isHidden = false
-           
+            
         } else {
             userPostCell.deleteButton.isHidden = true
         }
@@ -190,7 +148,7 @@ extension UserViewController: PostCellDelegate {
     func deletePost(postId: String) {
         let requestHeaders: [String:String] = ["Authorization" : "Bearer \(LoginManager.userToken!)",
                                                "Content-Type" : "application/json"]
-       
+        
         
         var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed/\(postId)")!)
         request.httpMethod = "DELETE"

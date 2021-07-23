@@ -22,6 +22,9 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     
     weak var delegate: PostCellDelegate?
+    var post: PostModel?
+   
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +34,11 @@ class PostCell: UITableViewCell {
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
+        
+        contentLabel.text = post?.postContent
+        fullNameLabel.text = post?.authorFullName
+    
+      
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
