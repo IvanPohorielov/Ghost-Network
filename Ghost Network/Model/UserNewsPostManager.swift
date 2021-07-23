@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostManager {
+class UserNewsPostManager {
 
     func fetch(userId: String,  completion: @escaping ([PostModel]) -> Void) {
         

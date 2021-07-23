@@ -31,7 +31,7 @@ class UserViewController: UIViewController{
         
     }
     
-    let postManager = PostManager()
+    let postManager = UserNewsPostManager()
     //MARK: - FetchUserData
     
     func fetchUserData() {
@@ -71,15 +71,10 @@ class UserViewController: UIViewController{
                         print("error")
                     }
                     if let dateOfBirth = userData.dateOfBirth {
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "yyyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        let formattedDate = formatter.date(from: dateOfBirth)
-                        let formatter1 = DateFormatter()
-                        formatter1.dateFormat = "MMM d, yyyy"
-                        let dateString = formatter1.string(from: formattedDate!)
-                        let age = getAge(date: formattedDate!)
+                        let dateOfBirthString = parceAge(dateOfBirth: dateOfBirth).0
+                        let age = parceAge(dateOfBirth: dateOfBirth).1
                         
-                        self.ageLabel.text =  "\(dateString) (\(age) y.o.)"
+                        self.ageLabel.text =  "\(dateOfBirthString) (\(age) y.o.)"
                         
                     } else {
                         print("error")
@@ -90,15 +85,28 @@ class UserViewController: UIViewController{
             }
         }.resume()
         
-        func getAge(date: Date) -> Int {
-            let calendar = Calendar.current
-            let dateComponent = calendar.dateComponents([.year], from:
-                                                            date, to: Date())
+        func parceAge(dateOfBirth: String)  -> (String, Int){
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let formattedDate = formatter.date(from: dateOfBirth)
+            let formatter1 = DateFormatter()
+            formatter1.dateFormat = "MMM d, yyyy"
+            let dateOfBirth = formatter1.string(from: formattedDate!)
+            let age = getAge(date: formattedDate!)
             
-            return (dateComponent.year!)
+            func getAge(date: Date) -> Int {
+                let calendar = Calendar.current
+                let dateComponent = calendar.dateComponents([.year], from:
+                                                                date, to: Date())
+                
+                return (dateComponent.year!)
+            }
+            
+            return (dateOfBirth, age)
         }
     }
     
+    // Getting posts
     var posts: [PostModel] = []
     
     func fetchUserNewsFeed() {
