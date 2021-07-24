@@ -22,6 +22,7 @@
 		FAD2B4F926AADBF2002C8050 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4F826AADBF2002C8050 /* UserManager.swift */; };
 		FAD2B4FB26ABECD3002C8050 /* NewsFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */; };
 		FAD2B4FD26ABEF0F002C8050 /* NewPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4FC26ABEF0F002C8050 /* NewPostManager.swift */; };
+		FAD2B4FF26ABF27A002C8050 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4FE26ABF27A002C8050 /* Models.swift */; };
 		FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BC269438EF009C0AA9 /* AppDelegate.swift */; };
 		FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */; };
 		FAD570C4269438EF009C0AA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD570C2269438EF009C0AA9 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		FAD2B4F826AADBF2002C8050 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedManager.swift; sourceTree = "<group>"; };
 		FAD2B4FC26ABEF0F002C8050 /* NewPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostManager.swift; sourceTree = "<group>"; };
+		FAD2B4FE26ABF27A002C8050 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FAD570B9269438EF009C0AA9 /* Ghost Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD570BC269438EF009C0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,9 +123,10 @@
 		FAD570D026944324009C0AA9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA5C114F269480DB004B038C /* LoginManager.swift */,
+				FAD2B4FE26ABF27A002C8050 /* Models.swift */,
 				FA5C11532694810F004B038C /* Data.swift */,
 				FA2D14CA2699833900686D4E /* Alert.swift */,
+				FA5C114F269480DB004B038C /* LoginManager.swift */,
 				FAD2B4F826AADBF2002C8050 /* UserManager.swift */,
 				FA4DDF1826A6B1D800D3C9D7 /* UserNewsManager.swift */,
 				FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */,
@@ -262,6 +265,7 @@
 				FA4DDF1926A6B1D800D3C9D7 /* UserNewsManager.swift in Sources */,
 				FA5C1150269480DB004B038C /* LoginManager.swift in Sources */,
 				FA6226D4269DF6B400F6E2CE /* PostCell.swift in Sources */,
+				FAD2B4FF26ABF27A002C8050 /* Models.swift in Sources */,
 				FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */,
 				FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */,
 				FA2D14CB2699833900686D4E /* Alert.swift in Sources */,

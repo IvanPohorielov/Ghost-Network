@@ -23,8 +23,6 @@ class NewsFeedViewController: UIViewController{
         newPostButton.layer.shadowRadius = 10
         newPostButton.layer.shadowOpacity = 0.5
         
-        
-        
         posts = []
         fetchNewsFeed()
     }

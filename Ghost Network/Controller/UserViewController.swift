@@ -12,7 +12,7 @@ class UserViewController: UIViewController{
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var avatarImage: RoundedImageView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,11 +21,7 @@ class UserViewController: UIViewController{
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        
-        avatarImage.layer.masksToBounds = false
-        avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
-        avatarImage.clipsToBounds = true
-        
+
         posts = []
         fetchUserNewsFeed()
         

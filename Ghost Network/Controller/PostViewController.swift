@@ -12,6 +12,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var postTextView: UITextView!
     
+    var newPostManager = NewPostManager()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -26,7 +27,7 @@ class PostViewController: UIViewController {
     @IBAction func postButtonDidPressed(_ sender: UIButton) {
     
         if validateTextView(textView: postTextView) == true {
-            newPost(userToken: LoginManager.userToken!, subject: LoginManager.subject!, postContent: postTextView.text)
+        newPostManager.newPost(userToken: LoginManager.userToken!, postContent: postTextView.text)
             navigationController?.popViewController(animated: true)
         }
     }
@@ -44,29 +45,5 @@ class PostViewController: UIViewController {
             return false
         }
         return true
-    }
-    
-    func newPost(userToken: String, subject: String, postContent: String) {
-        
-        let requestHeaders: [String:String] = ["Authorization" : "Bearer \(LoginManager.userToken!)",
-                                               "Content-Type" : "application/json"]
-        let body = NewPost(content: postContent)
-        
-        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed")!)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = requestHeaders
-        request.httpBody = try! JSONEncoder().encode(body)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if error != nil {
-                print("Some error.")
-                return
-            } else {
-                guard let data = data else { return }
-                let string = String(decoding: data, as: UTF8.self)
-                print(string)
-            }
-        }.resume()
     }
 }
