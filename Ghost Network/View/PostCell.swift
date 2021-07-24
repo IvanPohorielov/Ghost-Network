@@ -14,7 +14,7 @@ protocol PostCellDelegate: AnyObject {
 class PostCell: UITableViewCell {
     
     @IBOutlet weak var postBody: UIView!
-    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var avatarImage: RoundedImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -31,14 +31,9 @@ class PostCell: UITableViewCell {
         postBody.layer.cornerRadius = postBody.frame.size.height / 15
         likeButton.layer.cornerRadius = 15
         commentButton.layer.cornerRadius = 15
-        avatarImage.layer.masksToBounds = false
-        avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
-        avatarImage.clipsToBounds = true
-        
+       
         contentLabel.text = post?.postContent
         fullNameLabel.text = post?.authorFullName
-    
-      
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {

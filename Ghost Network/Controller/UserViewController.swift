@@ -21,7 +21,8 @@ class UserViewController: UIViewController{
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-
+        
+            
         posts = []
         fetchUserNewsFeed()
         
