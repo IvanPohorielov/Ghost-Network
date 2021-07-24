@@ -17,19 +17,17 @@ class UserViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        posts = []
         fetchUserData()
+        fetchUserNewsFeed()
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        
-            
-        posts = []
-        fetchUserNewsFeed()
-        
     }
     
     let userManager = UserManager()
     let userPostManager = UserNewsManager()
+    let deletePostManager = DeletePostManager()
 
     // Getting user data
     
@@ -90,29 +88,7 @@ extension UserViewController: UITableViewDataSource {
 extension UserViewController: PostCellDelegate {
     func didTap(_ cell: PostCell) {
         let indexPath = self.tableView.indexPath(for: cell)
-        deletePost(postId: posts[indexPath!.row].postId!)
-    }
-    
-    func deletePost(postId: String) {
-        let requestHeaders: [String:String] = ["Authorization" : "Bearer \(LoginManager.userToken!)",
-                                               "Content-Type" : "application/json"]
-        
-        
-        var request = URLRequest(url: URL(string: "https://api.gn.boberneprotiv.com/NewsFeed/\(postId)")!)
-        request.httpMethod = "DELETE"
-        request.allHTTPHeaderFields = requestHeaders
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if error != nil {
-                print("Some error.")
-                return
-            } else {
-                guard let data = data else { return }
-                let string = String(decoding: data, as: UTF8.self)
-                print(string)
-            }
-        }.resume()
+        deletePostManager.delete(postId: posts[indexPath!.row].postId!, userToken: LoginManager.userToken!)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
             self.posts = []
             self.fetchUserNewsFeed()

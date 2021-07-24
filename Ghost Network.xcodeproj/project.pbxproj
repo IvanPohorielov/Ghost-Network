@@ -23,6 +23,7 @@
 		FAD2B4FB26ABECD3002C8050 /* NewsFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */; };
 		FAD2B4FD26ABEF0F002C8050 /* NewPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B4FC26ABEF0F002C8050 /* NewPostManager.swift */; };
 		FAD2B50126AC0342002C8050 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B50026AC0342002C8050 /* RoundedImageView.swift */; };
+		FAD2B50326AC0633002C8050 /* DeletePostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2B50226AC0633002C8050 /* DeletePostManager.swift */; };
 		FAD570BD269438EF009C0AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BC269438EF009C0AA9 /* AppDelegate.swift */; };
 		FAD570BF269438EF009C0AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */; };
 		FAD570C4269438EF009C0AA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD570C2269438EF009C0AA9 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedManager.swift; sourceTree = "<group>"; };
 		FAD2B4FC26ABEF0F002C8050 /* NewPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostManager.swift; sourceTree = "<group>"; };
 		FAD2B50026AC0342002C8050 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		FAD2B50226AC0633002C8050 /* DeletePostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostManager.swift; sourceTree = "<group>"; };
 		FAD570B9269438EF009C0AA9 /* Ghost Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD570BC269438EF009C0AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD570BE269438EF009C0AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				FA4DDF1826A6B1D800D3C9D7 /* UserNewsManager.swift */,
 				FAD2B4FA26ABECD3002C8050 /* NewsFeedManager.swift */,
 				FAD2B4FC26ABEF0F002C8050 /* NewPostManager.swift */,
+				FAD2B50226AC0633002C8050 /* DeletePostManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				FA6226DB26A2FD5800F6E2CE /* PostViewController.swift in Sources */,
 				FA5C114A269449DB004B038C /* LoginViewController.swift in Sources */,
+				FAD2B50326AC0633002C8050 /* DeletePostManager.swift in Sources */,
 				FA6961EC2696FED60008FFD1 /* UserViewController.swift in Sources */,
 				FAD2B4F926AADBF2002C8050 /* UserManager.swift in Sources */,
 				FAD2B4FB26ABECD3002C8050 /* NewsFeedManager.swift in Sources */,
