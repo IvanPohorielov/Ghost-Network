@@ -130,6 +130,11 @@
             <point key="canvasLocation" x="-150.72463768115944" y="159.04017857142856"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="Bnc-Kz-9yC">
+            <size key="intrinsicContentSize" width="500" height="500"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Image" width="500" height="500"/>
         <image name="trash" catalog="system" width="121" height="128"/>

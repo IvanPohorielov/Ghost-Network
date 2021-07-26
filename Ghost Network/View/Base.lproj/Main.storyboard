@@ -182,7 +182,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCE-KA-5Sa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCE-KA-5Sa" customClass="RoundedButton" customModule="Ghost_Network" customModuleProvider="target">
                                 <rect key="frame" x="334" y="743" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -305,6 +305,14 @@
             <point key="canvasLocation" x="-613.04347826086962" y="-611.38392857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="7g0-P7-TnN">
+            <size key="intrinsicContentSize" width="500" height="500"/>
+        </designable>
+        <designable name="BCE-KA-5Sa">
+            <size key="intrinsicContentSize" width="21.5" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Image" width="500" height="500"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>

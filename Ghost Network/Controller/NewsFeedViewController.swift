@@ -10,17 +10,13 @@ import UIKit
 class NewsFeedViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var newPostButton: RoundedButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        
-        newPostButton.layer.cornerRadius = 30
-        newPostButton.layer.shadowRadius = 10
-        newPostButton.layer.shadowOpacity = 0.5
         
         posts = []
         fetchNewsFeed()
